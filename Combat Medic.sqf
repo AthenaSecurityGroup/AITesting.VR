@@ -8,13 +8,12 @@ if (isServer) then {
 
 Every AI unit initialization:
 _any/everyunit addeventhandler ["Handledamage",{
-	if (_this select 2 > 0.8) then {
-		_unit = _this select 0;
-		_unit setunconscious true;
-		IndiCasualties pushBackUnique _unit;
-	};
+    if (_this select 2 > 0.8) then {
+        _unit = _this select 0;
+        _unit setunconscious true;
+        IndiCasualties pushBackUnique _unit;
+    };
 }];*/
-
 params [
     "_medic",
     "_casualties"
@@ -30,7 +29,9 @@ while {alive _medic} do {
     };
 
     _casualty = _casualties select 0;
+    // Mutates reference to casualty "queue".
     _casualties deleteRange [0, 1];
+
     _medic doMove (position _casualty);
     waitUntil {_medic distance _casualty < 2};
     doStop _medic;

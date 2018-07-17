@@ -13,25 +13,33 @@ If (!isServer) exitwith {};
 Params ["_trigger"];
 _trigger spawn {
 	_Base = (getmarkerpos "Origin");
-	_HQ = [(_this getpos [2200,(_this getdir _Base) -60 + round random 120]), INDEPENDENT, ["I_officer_F","I_medic_F","I_Soldier_SL_F","I_soldier_UAV_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
+	_Rally = (_this getpos [2200,(_this getdir _Base) -60 + round random 120]);
+	_HQ = [_Rally, INDEPENDENT, ["I_officer_F","I_medic_F","I_officer_F","I_soldier_UAV_F"],[],["LIEUTENANT","PRIVATE","SERGEANT","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
+	Sleep 1;
+	_G1 = [_Rally, INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_soldier_F","I_soldier_F"],[],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
+	Sleep 1;
+	_G2 = [_Rally, INDEPENDENT, ["I_Soldier_SL_F","I_Soldier_M_F","I_Soldier_AR_F","I_soldier_F"],[],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
+	Sleep 1;
+	_G3 = [_Rally, INDEPENDENT, ["I_Soldier_TL_F","I_soldier_F","I_Soldier_AR_F","I_soldier_F"],[],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
+	Sleep 1;
+	_G4 = [_Rally, INDEPENDENT, ["I_Soldier_SL_F","I_Soldier_GL_F","I_Soldier_AR_F","I_soldier_F"],[],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
+	Sleep 1;
+	_G5 = [_Rally, INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_soldier_F","I_soldier_F"],[],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
+	Sleep 1;
+	_G6 = [_Rally, INDEPENDENT, ["I_Soldier_SL_F","I_Soldier_AR_F","I_Soldier_GL_F","I_soldier_F"],[],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
+	Sleep 1;
+
 	_PL = leader _HQ;
-	Sleep 1;
-	_G1 = [getpos _HQ, INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_soldier_F","I_soldier_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-	Sleep 1;
-	_G2 = [getpos _HQ, INDEPENDENT, ["I_Soldier_SL_F","I_soldier_F","I_Soldier_AR_F","I_Soldier_M_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-	Sleep 1;
-	_G3 = [getpos _HQ, INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_soldier_F","I_soldier_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-	Sleep 1;
-	_G4 = [getpos _HQ, INDEPENDENT, ["I_Soldier_SL_F","I_Soldier_AR_F","I_soldier_F","I_Soldier_LAT_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-	Sleep 1;
-	_G5 = [getpos _HQ, INDEPENDENT, ["I_Soldier_TL_F","I_soldier_F","I_Soldier_AR_F","I_soldier_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-	Sleep 1;
-	_G6 = [getpos _HQ, INDEPENDENT, ["I_Soldier_SL_F","I_soldier_F","I_Soldier_AR_F","I_Soldier_LAT_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-	Sleep 1;
+	_L1 = leader _G1;
+	_L2 = leader _G2;
+	_L3 = leader _G3;
+	_L4 = leader _G4;
+	_L5 = leader _G5;
+	_L6 = leader _G6;
 
 	{
 		{
-//			_x execVM "Gear\AAF.sqf";
+			_x execvm "Gear\AAF.sqf";
 			_x setbehaviour "AWARE";
 		} foreach units _x;
 	} foreach [_HQ, _G1, _G2, _G3, _G4, _G5, _G6];

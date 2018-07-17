@@ -3,22 +3,35 @@ if (!isServer) exitwith {};
 params ["_trigger"];
 _trigger spawn {
 	_G1 = [(getpos _this), INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_soldier_F","I_soldier_F","I_Soldier_SL_F","I_soldier_F","I_Soldier_AR_F","I_soldier_F"],[],[],[],[],[],0] call BIS_fnc_spawnGroup;
-Sleep 5;
+	_TL = leader _G1;
+Sleep 2;
 	{
 		_x setbehaviour "SAFE";
 		Dostop _x;
 	} foreach (units _G1);
-Sleep 5;
+Sleep 2;
 	{
-		_x domove ((getpos _this) getpos [(1 + random 20), (0+ random 360)]);
+		_x domove ((getpos _this) getpos [(1 + random 20), (0 + random 360)]);
 	} foreach (units _G1);
-Sleep 5;
+Sleep 10;
 	{
-		_x playmove "AmovPercMstpSlowWrflDnon_AmovPsitMstpSlowWrflDnon";
+		[_x, (selectrandom ["STAND","STAND_IA","SIT_LOW","KNEEL","WATCH","WATCH1","WATCH2"]), "RANDOM",
+		{
+			private _threats = (leader _G1) neartargets 400;
+			_threats findif {side (_x select 4) != side (leader _G1)} != -1;
+		}, "SAFE"] call BIS_fnc_ambientAnimCombat;
 	} foreach (units _G1);
 };
 
 /*
+
+[C1, "STAND1", "NONE"] call BIS_fnc_ambientAnim;
+
+[C1,"STAND","ASIS"] call BIS_fnc_ambientAnimCombat;
+
+	{
+		_x playmove selectrandom "AmovPercMstpSlowWrflDnon_AmovPsitMstpSlowWrflDnon";
+	} foreach (units _G1);
 
 Sleep 5;
 playmove "AmovPsitMstpSrasWrflDnon"

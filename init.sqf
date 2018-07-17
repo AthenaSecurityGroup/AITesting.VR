@@ -1,1 +1,2 @@
 [] execVM "Key.sqf";
+IndiCasualties = [];

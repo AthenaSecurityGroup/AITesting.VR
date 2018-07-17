@@ -10,7 +10,7 @@ If (!isServer) exitwith {};
 Params ["_trigger"];
 _trigger spawn {
 	_Base = (getmarkerpos "Origin");
-	_G1 = [(_this getpos [2200,(_this getdir _Base) -60 + round random 120]), INDEPENDENT, ["I_Spotter_F","I_Spotter_F","I_Sniper_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
+	_G1 = [(_this getpos [2200,(_this getdir _Base) -60 + round random 120]), INDEPENDENT, ["I_Spotter_F","I_Spotter_F","I_Sniper_F"],[],["CORPORAL","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
 	_TL = leader _G1;
 
 	{

@@ -1,2 +1,4 @@
 [] execVM "Key.sqf";
-IndiCasualties = [];
+if (isServer) then {
+    IndiCasualties = [];
+};

@@ -21,14 +21,33 @@ Sleep 1;
 _G6 = [_Base, INDEPENDENT, ["I_Soldier_SL_F","I_Soldier_AR_F","I_Soldier_GL_F","I_soldier_F"],[],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
 Sleep 1;
 
+_PL = leader _HQ;
+_L1 = leader _G1;
+
 {
 	{
-		_x execvm "Gear\AAF.sqf";
-	} foreach units _x;
-} foreach [_G1,_G2,_G3,_G4,_G5,_G6,_HQ];
+		_gearhandle = _x execvm "Gear\AAF.sqf";
+		waitUntil {scriptDone _gearhandle};
 
-_G1 addwaypoint [_this getpos [100, (getpos leader (_G1) getdir _this)], 600];
-Sleep 45;
+		if ((_x getunittrait "medic") && {"Medikit" in items _x}) then {
+			[_x, IndiCasualties] execVM "Combat Medic.sqf";
+		};
+
+		_x addeventhandler ["Handledamage",{
+			if (_this select 2 > 0.8) then {
+				_unit = _this select 0;
+				_unit setunconscious true;
+				IndiCasualties pushbackunique _unit;
+			};
+		}];
+	} foreach units _x;
+	_x deletegroupwhenempty true;
+} foreach [_HQ, _G1, _G2, _G3, _G4, _G5, _G6];
+Sleep 1;
+
+_G1 addwaypoint [_trigger getpos [-1800, (getpos _L1 getdir _trigger)], 0];
+_G1 addwaypoint [_trigger getpos [100, (getpos _L1 getdir _trigger)], 600];
+Sleep 30;
 
 _G2 copywaypoints _G1;
 _G3 copywaypoints _G1;
@@ -37,17 +56,17 @@ _G5 copywaypoints _G1;
 {
 	private _waypoint = _x;
 	private _wpposition = waypointposition _waypoint;
-	_wpposition = _wpposition getpos [400, (getdir leader (_G1)) + 270];
+	_wpposition = _wpposition getpos [300, (getdir leader (_G1)) + 270];
 	_waypoint setWPPos _wpposition;
 } foreach waypoints _G3;
 
 {
 	private _waypoint = _x;
 	private _wpposition = waypointposition _waypoint;
-	_wpposition = _wpposition getpos [400, (getdir leader (_G1)) + 90];
+	_wpposition = _wpposition getpos [300, (getdir leader (_G1)) + 90];
 	_waypoint setwppos _wpposition;
 } foreach waypoints _G5;
-Sleep 45;
+Sleep 30;
 
 _HQ copywaypoints _G1;
 _G4 copywaypoints _G1;
@@ -56,14 +75,14 @@ _G6 copywaypoints _G1;
 {
 	private _waypoint = _x;
 	private _wpPosition = waypointposition _waypoint;
-	_wpPosition = _wpPosition getpos [400, (getdir leader (_G1)) + 270];
+	_wpPosition = _wpPosition getpos [300, (getdir leader (_G1)) + 270];
 	_waypoint setWPPos _wpPosition;
 } foreach waypoints _G4;
 
 {
 	private _waypoint = _x;
 	private _wpPosition = waypointPosition _waypoint;
-	_wpPosition = _wpPosition getpos [400, (getdir leader (_G1)) + 90];
+	_wpPosition = _wpPosition getpos [300, (getdir leader (_G1)) + 90];
 	_waypoint setWPPos _wpPosition;
 } foreach waypoints _G6;
 

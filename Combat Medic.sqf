@@ -41,7 +41,9 @@ while {alive _medic} do {
         _casualty setdamage 0;
         _casualty setunconscious false;
         waitUntil {damage _casualty < 0.2};
-        sleep 5;
+        _medic setunitpos "MIDDLE";
+        sleep 8;
     };
+    _medic setunitpos "AUTO";
     _medic doFollow (leader _medic);
 };

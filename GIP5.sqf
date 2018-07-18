@@ -7,22 +7,18 @@ Platoon members at base withdraw if defeated.
 
 If (!isServer) exitwith {};
 Params ["_trigger"];
-_trigger spawn {
-	_G1 = [(getpos _this), INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_GL_F","I_soldier_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
-	Sleep 1;
+_G1 = [(getpos _this), INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_Soldier_GL_F","I_soldier_F"],[],[],[],[],[],180] call BIS_fnc_spawnGroup;
+Sleep 1;
 
-	_G1 addwaypoint [_this, 0];
-	_G1 addwaypoint [_this, (20 + random 40)];
-	_G1 addwaypoint [_this, (20 + random 40)];
-	_G1 addwaypoint [_this, (20 + random 40)];
-	_G1 addwaypoint [_this, 0];
-	[_G1, 3] setwaypointstatements ["true", "hint 'hello'; hint 'goodbye'"];
+_G1 addwaypoint [_this, 0];
+_G1 addwaypoint [_this, (20 + random 40)];
+_G1 addwaypoint [_this, (20 + random 40)];
+_G1 addwaypoint [_this, (20 + random 40)];
+_G1 addwaypoint [_this, 0];
+[_G1, 3] setwaypointstatements ["true", "hint 'hello'; hint 'goodbye'"];
 
-
-
-	_G1 addwaypoint [_this, 0];
-	[_G1, 6] setwaypointtype "CYCLE";
-};
+_G1 addwaypoint [_this, 0];
+[_G1, 6] setwaypointtype "CYCLE";
 
 
 /*Actions at rest:

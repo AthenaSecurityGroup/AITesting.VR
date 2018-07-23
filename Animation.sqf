@@ -2,7 +2,6 @@
 [C1, "STAND1", "NONE"] call BIS_fnc_ambientAnim;
 [C_1,"STAND","ASIS"] call BIS_fnc_ambientAnimCombat;
 [C_1, (selectrandom ["STAND","STAND_IA","SIT_LOW","KNEEL","LEAN","WATCH","WATCH1","WATCH2"]),(selectrandom ["NONE","LIGHT","MEDIUM","MEDIUM","FULL","ASIS","RANDOM"])] call BIS_fnc_ambientAnimCombat;
-*/
 
 [C_1, (selectrandom ["STAND","STAND_IA","SIT_LOW","KNEEL","WATCH","WATCH1","WATCH2"]), "RANDOM", {(player distance _this) < 5}, "SAFE"] call BIS_fnc_ambientAnimCombat;
 [C_2, (selectrandom ["STAND","STAND_IA","SIT_LOW","KNEEL","WATCH","WATCH1","WATCH2"]), "RANDOM", {(player distance _this) < 5}, "SAFE"] call BIS_fnc_ambientAnimCombat;
@@ -19,7 +18,26 @@
 [C_13, (selectrandom ["STAND","STAND_IA","SIT_LOW","KNEEL","WATCH","WATCH1","WATCH2"]), "RANDOM", {(player distance _this) < 5}, "SAFE"] call BIS_fnc_ambientAnimCombat;
 [C_14, (selectrandom ["STAND","STAND_IA","SIT_LOW","KNEEL","WATCH","WATCH1","WATCH2"]), "RANDOM", {(player distance _this) < 5}, "SAFE"] call BIS_fnc_ambientAnimCombat;
 [C_15, (selectrandom ["STAND","STAND_IA","SIT_LOW","KNEEL","WATCH","WATCH1","WATCH2"]), "RANDOM", {(player distance _this) < 5}, "SAFE"] call BIS_fnc_ambientAnimCombat;
+*/
 
+playaction
+
+Actions:
+Down
+Medic
+MedicOther
+Relax
+released
+Salute
+SitDown
+StopRelaxed
+Surrender
+
+
+playmove
+switchmove
+
+Moves:
 
 /*
 Base Posting: React to Contact Defensively

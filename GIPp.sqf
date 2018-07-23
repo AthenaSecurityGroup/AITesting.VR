@@ -1,7 +1,7 @@
 //Greek Infantry Platoon Off Duty (SAFE)
 if (!isServer) exitwith {};
 params ["_trigger"];
-_G1 = [(getpos _this), INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_soldier_F","I_soldier_F","I_Soldier_SL_F","I_soldier_F","I_Soldier_AR_F","I_soldier_F"],[],[],[],[],[],0] call BIS_fnc_spawnGroup;
+_G1 = [(getpos Objective), INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_soldier_F","I_soldier_F","I_Soldier_SL_F","I_soldier_F","I_Soldier_AR_F","I_soldier_F"],[],[],[],[],[],0] call BIS_fnc_spawnGroup;
 _TL = leader _G1;
 Sleep 2;
 
@@ -12,10 +12,18 @@ Sleep 2;
 Sleep 2;
 
 {
-	_x domove ((getpos _this) getpos [(1 + random 20), (0 + random 360)]);
+	_x domove ((getpos Objective) getpos [(1 + random 20), (0 + random 360)]);
 } foreach (units _G1);
 Sleep 10;
 
+{
+	_x domove ((getpos Objective) getpos [(1 + random 20), (0 + random 360)]);
+} foreach (units _G1);
+Sleep 10;
+
+
+
+/*
 {
 	[_x, (selectrandom ["STAND","STAND_IA","SIT_LOW","KNEEL","WATCH","WATCH1","WATCH2"]), "RANDOM",
 	{
@@ -25,7 +33,6 @@ Sleep 10;
 } foreach (units _G1);
 
 /*
-
 [C1, "STAND1", "NONE"] call BIS_fnc_ambientAnim;
 
 [C1,"STAND","ASIS"] call BIS_fnc_ambientAnimCombat;

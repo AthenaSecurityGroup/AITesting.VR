@@ -1,0 +1,27 @@
+class CfgSounds
+{
+	sounds[] = {};
+	class roger
+	{
+		name = "roger";
+		sound[] = {"@a3\dubbing_f_beta\showcase_combined_arms\15_Insertion_Complete\showcase_combined_arms_15_insertion_complete_BHQ_0.ogg", 1, 1, 15};
+		titles[] = {1, "Testing."};
+	};
+};
+
+/*
+class CfgSounds
+{
+	sounds[] = {};
+	class roger
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "roger";
+
+		// filename, volume, pitch, distance (optional)
+		sound[] = {"a3\dubbing_f_beta\showcase_combined_arms\15_Insertion_Complete\showcase_combined_arms_15_insertion_complete_BHQ_0.ogg", 1, 1, 1};
+
+		// subtitle delay in seconds, subtitle text
+		titles[] = {1, "Testing."};
+	};
+};

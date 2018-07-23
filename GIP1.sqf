@@ -45,8 +45,8 @@ _L1 = leader _G1;
 } foreach [_HQ, _G1, _G2, _G3, _G4, _G5, _G6];
 Sleep 1;
 
-_G1 addwaypoint [_trigger getpos [-1800, (getpos _L1 getdir _trigger)], 0];
-_G1 addwaypoint [_trigger getpos [100, (getpos _L1 getdir _trigger)], 600];
+_G1 addwaypoint [Objective getpos [-1800, (getpos _L1 getdir Objective)], 0];
+_G1 addwaypoint [Objective getpos [100, (getpos _L1 getdir Objective)], 600];
 Sleep 30;
 
 _G2 copywaypoints _G1;

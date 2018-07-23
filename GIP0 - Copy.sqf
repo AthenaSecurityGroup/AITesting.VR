@@ -12,6 +12,32 @@ Repeat;
 
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 If (!isServer) exitwith {};
 Params ["_trigger"];
 _Base = (getmarkerpos "Origin");
@@ -29,8 +55,6 @@ _G5 = [_Base, INDEPENDENT, ["I_Soldier_TL_F","I_Soldier_AR_F","I_soldier_F","I_s
 Sleep 1;
 _G6 = [_Base, INDEPENDENT, ["I_Soldier_SL_F","I_Soldier_AR_F","I_Soldier_GL_F","I_soldier_F"],[],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"],[],[],[],180] call BIS_fnc_spawnGroup;
 Sleep 1;
-
-_PL = leader _HQ;
 
 {
 	{
@@ -53,27 +77,19 @@ _PL = leader _HQ;
 } foreach [_HQ, _G1, _G2, _G3, _G4, _G5, _G6];
 Sleep 1;
 
-_pos = getpos _PL;
-_range = 2000;
-_blacklist = [];
-
-private ["_prevpos"];
-_prevpos = _pos;
-for "_i" from 0 to (2 + (floor (random 3))) do
-{
-    private ["_wp", "_newPos"];
-    _newpos = [_prevpos, 50, _range, 1, 0, 60 * (pi / 180), 0, _blacklist] call BIS_fnc_findSafePos;
-    _prevpos = _newpos;
-
-    _wp = _G1 addwaypoint [_newpos, 0];
-    _wp setwaypointtype "MOVE";
-    _wp setwaypointcompletionradius 20;
-};
+_G1 addwaypoint [_Base, 2400];
+_G1 addwaypoint [_Base, 2400];
+_G1 addwaypoint [_Base, 2400];
+_G1 addwaypoint [_Base, 2400];
+_G1 addwaypoint [_Base, 2400];
+_G1 addwaypoint [_Base, 2400];
+_G1 addwaypoint [_Base, 2400];
 
 [_G1, 1] setwaypointbehaviour (selectrandom ["AWARE", "SAFE"]);
 [_G1, 1] setwaypointtype "MOVE";
-[_G1, 1] setwaypointformation (selectrandom ["COLUMN","FILE","WEDGE"]);
+//[_G1, 1] setwaypointformation (selectrandom ["COLUMN","FILE","WEDGE"]);
 [_G1, 1] setwaypointspeed "LIMITED";
+[_G1, 6] setwaypointtype "CYCLE";
 Sleep 45;
 
 _G2 copywaypoints _G1;
@@ -102,10 +118,3 @@ _G5 copywaypoints _G1;
 Sleep 45;
 
 _G6 copywaypoints _G1;
-
-
-
-private ["_wp"];
-_wp = _G1 addwaypoint [_pos, 0];
-_wp setwaypointtype "CYCLE";
-_wp setwaypointcompletionradius 20;

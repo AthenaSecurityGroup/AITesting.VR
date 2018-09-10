@@ -19,8 +19,8 @@ params [
     "_casualties"
 ];
 
-while {alive _medic} do {
-    waitUntil {
+While {alive _medic} do {
+    Waituntil {
         sleep 30;
         count _casualties > 0 && {
             _casualty = _casualties select 0;
@@ -28,20 +28,26 @@ while {alive _medic} do {
         };
     };
 
-    _casualty = _casualties select 0;
-    // Mutates reference to casualty "queue".
-    _casualties deleteRange [0, 1];
+    While {alive _medic && {count _casualties > 0}} do {
 
-    _medic doMove (position _casualty);
-    waitUntil {_medic distance _casualty < 2};
-    doStop _medic;
-    _medic action ["Heal", _casualty];
-    if (alive _casualty) then {
-        sleep 5;
-        _casualty setdamage 0;
-        _casualty setunconscious false;
-        waitUntil {damage _casualty < 0.2};
-        sleep 5;
+        _casualty = _casualties select 0;
+        // Mutates reference to casualty "queue".
+        _casualties deleterange [0, 1];
+
+        _medic domove (position _casualty);
+        Waituntil {_medic distance _casualty < 2};
+        Dostop _medic;
+        _medic dowatch _casualty;
+        _medic action ["HealSoldier", _casualty];
+        If (alive _casualty) then {
+            sleep 5;
+            _casualty setdamage 0;
+            _casualty setunconscious false;
+            Waituntil {damage _casualty < 0.2};
+            _medic setunitpos "MIDDLE";
+            sleep 8;
+            _medic setunitpos "AUTO";
+        };
     };
-    _medic doFollow (leader _medic);
+    _medic dofollow (leader _medic);
 };

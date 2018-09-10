@@ -1,4 +1,12 @@
 //Design Doc and Notes
+
+/*
+Base Posting: React to Contact Defensively
+Bases must have invisible named markers at key postings.
+Units move to these postings if they know about a threat.
+Certain units prefer specific postings, like autoriflemen in corners.
+*/
+
 AI action "chain,"
 Secure (Secure local area, prepare)
 Supply (Logistics)

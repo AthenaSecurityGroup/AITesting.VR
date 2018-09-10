@@ -1,7 +1,42 @@
 /* Greek Infantry Platoon Security Patrol (AWARE or SAFE)
 Infantry platoon conducts a close security sweep of their parent combat out post.
 The patrol withdraws to combat out post if defeated.
+
+Design:
+Spawn groups;
+Generate random waypoints with a minimum and maximum radius of original position;
+Return to original position;
+Go off duty;
+Random sleep time;
+Repeat;
+
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 If (!isServer) exitwith {};
 Params ["_trigger"];
@@ -23,8 +58,8 @@ Sleep 1;
 
 {
 	{
-		_gearHandle = _x execvm "Gear\AAF.sqf";
-		waitUntil {scriptDone _gearHandle};
+		_gearhandle = _x execvm "Gear\AAF.sqf";
+		waitUntil {scriptDone _gearhandle};
 
 		if ((_x getunittrait "medic") && {"Medikit" in items _x}) then {
 			[_x, IndiCasualties] execVM "Combat Medic.sqf";
@@ -34,7 +69,7 @@ Sleep 1;
 			if (_this select 2 > 0.8) then {
 				_unit = _this select 0;
 				_unit setunconscious true;
-				IndiCasualties pushBackUnique _unit;
+				IndiCasualties pushbackunique _unit;
 			};
 		}];
 	} foreach units _x;

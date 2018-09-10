@@ -1,3 +1,7 @@
+class CfgFunctions {
+	#include "SimTools\ForceDeployment\SimTools_ForceDeployment.cpp"
+};
+
 class CfgSounds
 {
 	sounds[] = {};

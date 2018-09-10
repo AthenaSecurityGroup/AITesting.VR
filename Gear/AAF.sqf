@@ -21,6 +21,9 @@ _uniform = (selectRandom ["U_I_CombatUniform","U_I_CombatUniform","U_I_CombatUni
 _vest = (selectRandom ["V_PlateCarrierIAGL_dgtl","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA1_dgtl","V_PlateCarrierIA2_dgtl"]);
 _goggles = (selectRandom ["","","","","","","G_Combat","G_Combat_Goggles_tna_F","G_Lowprofile"]);
 _pack = (selectRandom ["B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_dgtl","B_AssaultPack_rgr"]);
+_carbine = (selectrandom ["arifle_Mk20C_F","arifle_Mk20C_plain_F"]);
+_launcher = (selectrandom ["arifle_Mk20_GL_F","arifle_Mk20_GL_plain_F"]);
+_marksman = (selectrandom ["arifle_Mk20_F","arifle_Mk20_plain_F"]);
 
 switch (_type) do {
 
@@ -33,7 +36,7 @@ switch (_type) do {
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
 		_obj addBackpack _pack;
 		_obj addItemToBackpack "Medikit";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -46,7 +49,7 @@ switch (_type) do {
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
 		for "_i" from 1 to 2 do {_obj addItemToVest "SmokeShellYellow";};
 		for "_i" from 1 to 2 do {_obj addItemToVest "SmokeShellGreen";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -68,7 +71,7 @@ switch (_type) do {
 		_obj linkItem "NVGoggles_INDEP";
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -81,7 +84,7 @@ switch (_type) do {
 		for "_i" from 1 to 4 do {_obj addItemToVest "1Rnd_HE_Grenade_shell";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "1Rnd_Smoke_Grenade_shell";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20_GL_F";
+		_obj addWeapon _launcher;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -95,7 +98,7 @@ switch (_type) do {
 		_obj addBackpack _pack;
 		for "_i" from 1 to 2 do {_obj addItemToBackpack "NLAW_F";};
 		_obj addWeapon "launch_NLAW_F";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -106,7 +109,7 @@ switch (_type) do {
 		_obj linkItem "NVGoggles_INDEP";
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20_F";
+		_obj addWeapon _marksman;
 		_obj addPrimaryWeaponItem "optic_MRCO";
 	};
 
@@ -119,7 +122,7 @@ switch (_type) do {
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
 		for "_i" from 1 to 2 do {_obj addItemToVest "SmokeShellYellow";};
 		for "_i" from 1 to 2 do {_obj addItemToVest "SmokeShellGreen";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -131,7 +134,7 @@ switch (_type) do {
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
 		for "_i" from 1 to 2 do {_obj addItemToVest "HandGrenade";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -155,7 +158,7 @@ switch (_type) do {
 		_obj addItemToBackpack "MineDetector";
 		for "_i" from 1 to 3 do {_obj addItemToBackpack "DemoCharge_Remote_Mag";};
 		_obj addGoggles "G_I_Diving";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "muzzle_snds_M";
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 		_obj linkItem "NVGoggles_INDEP";
@@ -185,7 +188,7 @@ switch (_type) do {
 		for "_i" from 1 to 10 do {_obj addItemToBackpack "1Rnd_Smoke_Grenade_shell";};
 		_obj addItemToBackpack "SatchelCharge_Remote_Mag";
 		_obj addGoggles "G_I_Diving";
-		_obj addWeapon "arifle_Mk20_GL_F";
+		_obj addWeapon _launcher;
 		_obj addPrimaryWeaponItem "muzzle_snds_M";
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 		_obj linkItem "NVGoggles_INDEP";
@@ -202,7 +205,7 @@ switch (_type) do {
 		_obj addItemToBackpack "ToolKit";
 		_obj addItemToBackpack "MineDetector";
 		for "_i" from 1 to 3 do {_obj addItemToBackpack "DemoCharge_Remote_Mag";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -233,7 +236,7 @@ switch (_type) do {
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
 		_obj addBackpack _pack;
 		_obj addItemToBackpack "Medikit";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -246,7 +249,7 @@ switch (_type) do {
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
 		for "_i" from 1 to 2 do {_obj addItemToVest "SmokeShellYellow";};
 		for "_i" from 1 to 2 do {_obj addItemToVest "SmokeShellGreen";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -281,7 +284,7 @@ switch (_type) do {
 		_obj addBackpack _pack;
 		_obj addItemToBackpack "Titan_AA";
 		_obj addWeapon "launch_B_Titan_tna_F";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -307,7 +310,7 @@ switch (_type) do {
 		_obj addItemToBackpack "Titan_AP";
 		_obj addItemToBackpack "Titan_AT";
 		_obj addWeapon "launch_B_Titan_short_tna_F";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -322,7 +325,7 @@ switch (_type) do {
 		_obj addItemToBackpack "ToolKit";
 		_obj addItemToBackpack "MineDetector";
 		for "_i" from 1 to 3 do {_obj addItemToBackpack "DemoCharge_Remote_Mag";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -333,7 +336,7 @@ switch (_type) do {
 		_obj addGoggles _goggles;
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -347,7 +350,7 @@ switch (_type) do {
 		_obj addBackpack _pack;
 		for "_i" from 1 to 2 do {_obj addItemToBackpack "RPG7_F";};
 		_obj addWeapon "launch_RPG7_F";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -361,7 +364,7 @@ switch (_type) do {
 		_obj addBackpack _pack;
 		for "_i" from 1 to 4 do {_obj addItemToBackpack "NLAW_F";};
 		_obj addWeapon "launch_NLAW_F";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -383,7 +386,7 @@ switch (_type) do {
 		_obj addGoggles _goggles;
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20_F";
+		_obj addWeapon _marksman;
 		_obj addPrimaryWeaponItem "optic_MRCO";
 	};
 
@@ -396,7 +399,7 @@ switch (_type) do {
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
 		_obj addBackpack _pack;
 		_obj addItemToBackpack "ToolKit";
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -409,7 +412,7 @@ switch (_type) do {
 		for "_i" from 1 to 4 do {_obj addItemToVest "1Rnd_HE_Grenade_shell";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "1Rnd_Smoke_Grenade_shell";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20_GL_F";
+		_obj addWeapon _launcher;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -421,7 +424,7 @@ switch (_type) do {
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
 		for "_i" from 1 to 2 do {_obj addItemToVest "HandGrenade";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -432,7 +435,7 @@ switch (_type) do {
 		_obj addGoggles _goggles;
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 		_obj linkItem "I_UavTerminal";
 		_obj addBackpack "I_UAV_01_backpack_F";
@@ -446,7 +449,7 @@ switch (_type) do {
 		_obj linkItem "NVGoggles_INDEP";
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 
@@ -457,7 +460,7 @@ switch (_type) do {
 		_obj addGoggles _goggles;
 		for "_i" from 1 to 8 do {_obj addItemToVest "30Rnd_556x45_Stanag_green";};
 		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
-		_obj addWeapon "arifle_Mk20C_F";
+		_obj addWeapon _carbine;
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};
 };

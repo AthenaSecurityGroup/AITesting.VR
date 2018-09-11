@@ -1,3 +1,16 @@
+LARs_spawnComp_debug = 0; //1 = RPT output, 2 = RPT output and ingame visual positioning info
+
+class CfgCompositions {
+	class PB {
+		#include "Compositions\AAFIPB.sqe"
+	};
+};
+
+class CfgFunctions {
+	#include "LARs\LARs_spawnComp.cpp"
+	#include "SimTools\ForceDeployment\SimTools_ForceDeployment.cpp"
+};
+
 class CfgSounds
 {
 	sounds[] = {};

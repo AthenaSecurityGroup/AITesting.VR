@@ -4,6 +4,9 @@ class CfgCompositions {
 	class PB {
 		#include "Compositions\AAFIPB.sqe"
 	};
+	class COP {
+		#include "Compositions\AAFICOP.sqe"
+	};
 };
 
 class CfgFunctions {

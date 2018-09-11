@@ -56,8 +56,8 @@ getPosAndBlacklists = {
 deployForce = {
 	params [
 		["_n_fobs_wanted", 2],
-		["_n_cops_per_fob", 3],
-		["_n_pbs_per_cop", 3]
+		["_n_cops_per_fob", 2],
+		["_n_pbs_per_cop", 2]
 	];
 
 	// FOBs

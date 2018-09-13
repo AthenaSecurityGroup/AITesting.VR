@@ -7,6 +7,9 @@ class CfgCompositions {
 	class COP {
 		#include "Compositions\AAFICOP.sqe"
 	};
+	class FOB {
+		#include "Compositions\AAFIFOB.sqe"
+	};
 };
 
 class CfgFunctions {

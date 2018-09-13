@@ -373,8 +373,7 @@ switch (_type) do {
 		_obj addVest _vest;
 		_obj addHeadgear "H_HelmetIA";
 		_obj addGoggles _goggles;
-		for "_i" from 1 to 3 do {_obj addItemToVest "150Rnd_762x54_Box";};
-		for "_i" from 1 to 4 do {_obj addItemToVest "SmokeShell";};
+		for "_i" from 1 to 4 do {_obj addItemToVest "150Rnd_762x54_Box";};
 		_obj addWeapon "LMG_Zafir_F";
 		_obj addPrimaryWeaponItem "optic_ACO_grn";
 	};

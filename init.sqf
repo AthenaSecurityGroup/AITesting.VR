@@ -1,5 +1,8 @@
 [] execVM "Key.sqf";
 if (isServer) then {
     IndiCasualties = [];
-	[] call compileFinal preprocessFile "SimTools_ForceDeploy.sqf";
+	[[
+		["BN", [], []],
+		["BN", [], []]
+	]] call SimTools_ForceDeployment_fnc_deployForce;
 };
